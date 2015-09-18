@@ -10,7 +10,7 @@
         <article>
         <ol>  
             <li>Assignment 1 - <a href="assignment1.0/index.php">Sample Tables</a>
-            <li>Assignment 2 - <a href="assignment2.0/index.php">The Select Statement</a>
+            <li>Assignment 2 - <a href="assignment2.0/select.php">The Select Statement</a>
         </ol>
         </article>
     </body>
