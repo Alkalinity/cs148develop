@@ -1,1 +1,1 @@
-SELECT DISTINCT fldDepartment FROM tblCourses;
+SELECT DISTINCT fldDepartment FROM tblCourses

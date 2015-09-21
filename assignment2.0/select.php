@@ -1,18 +1,11 @@
 <?php
 
-//##############################################################################
-//
-// This page lists your tables and fields within your database. if you click on
-// a database name it will show you all the records for that table. 
-// 
-// 
-// This file is only for class purposes and should never be publicly live
-//##############################################################################
 include "top.php";
 
 print '<table>';
     //now print out each record
-    $query = 'SELECT pmkNetId FROM tblTeachers';
+//$query = file_get_contents('sql/q01.sql');
+    $query = file_get_contents('sql/q01.sql');
     $columns = 1;
     
     $testquery = $thisDatabaseReader->testquery($query, "", 0, 0, 0, 0, false, false);
