@@ -17,16 +17,17 @@
         <h1>Assignment One - The Select Statement</h1>
 
         <ol>
-            <li><a href="queryOne.php">Query One</a></li>
-            <li><a href="queryTwo.php">Query Two</a></li>
-            <li><a href="queryThree.php">Query Three</a></li>
-            <li><a href="queryFour.php">Query Four</a></li>
-            <li><a href="queryFive.php">Query Five</a></li>
-            <li><a href="querySix.php">Query Six</a></li>
-            <li><a href="querySeven.php">Query Seven</a></li>
-            <li><a href="queryEight.php">Query Eight</a></li>
-            <li><a href="queryNine.php">Query Nine</a></li>
-            <li><a href="queryTen.php">Query Ten</a></li>
+            <li><a href="queryOne.php">Query One</a> SELECT pmkNetId FROM tblTeachers</li>
+            <li><a href="queryTwo.php">Query Two</a> SELECT fldDepartment FROM tblCourses WHERE fldCourseName = "Introduction"</li>
+            <li><a href="queryThree.php">Query Three</a> SELECT * FROM tblSections WHERE (fldStart = "1:10PM")</li>
+            <li><a href="queryFour.php">Query Four</a> SELECT * FROM tblCourses WHERE (fldCourseName = "Database Design for the Web") </li>
+            <li><a href="queryFive.php">Query Five</a> SELECT fldFirstName, fldLastName FROM tblTeachers WHERE pmkNetId LIKE 'r______o' </li>
+            <li><a href="querySix.php">Query Six</a> SELECT fldCourseName FROM tblCourses WHERE (fldCourseName LIKE 'data') AND (fldDepartment NOT LIKE 'CS')
+</li>
+            <li><a href="querySeven.php">Query Seven</a> SELECT DISTINCT fldDepartment FROM tblCourses</li>
+            <li><a href="queryEight.php">Query Eight</a> SELECT fldBuilding, fldSection FROM tblSections GROUP BY fldBuilding</li>
+            <li><a href="queryNine.php">Query Nine</a> SELECT DISTINCT fldBuilding, fldNumStudents FROM tblSections WHERE fldDays LIKE '%W%' GROUP by fldBuilding ORDER BY fldNumStudents DESC</li>
+            <li><a href="queryTen.php">Query Ten</a>SELECT DISTINCT fldBuilding, fldNumStudents FROM tblSections WHERE fldDays LIKE '%F%' GROUP by fldBuilding ORDER BY fldNumStudents DESC</li>
         </ol>
 
         <footer><p>Samuel Pakulski</p></footer>

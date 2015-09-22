@@ -13,11 +13,12 @@ include "top.php";
 print '<table>';
     //now print out each record
 //$query = file_get_contents('sql/q01.sql');
-    $query = "SELECT fldDepartment FROM tblCourses WHERE fldCourseName LIKE ?";
-    $data = array("%Introduction%");
+    $query = "SELECT fldCourseName FROM tblCourses WHERE (fldCourseName LIKE ?) AND (fldDepartment NOT LIKE ?)";
+    $data = array("%data%", "CS");
     $columns = 1;
     
-    $info2 = $thisDatabaseReader->select($query, $data, 1, 0, 0, 0, false, false);
+
+    $info2 = $thisDatabaseReader->select($query, $data, 1, 2, 0, 0, false, false);
     $highlight = 0; // used to highlight alternate rows
     foreach ($info2 as $rec) {
         $highlight++;
@@ -37,4 +38,3 @@ print '<table>';
     print '</table>';
 include "footer.php";
 ?>
-

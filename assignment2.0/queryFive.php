@@ -13,9 +13,9 @@ include "top.php";
 print '<table>';
     //now print out each record
 //$query = file_get_contents('sql/q01.sql');
-    $query = "SELECT fldDepartment FROM tblCourses WHERE fldCourseName LIKE ?";
-    $data = array("%Introduction%");
-    $columns = 1;
+    $query = "SELECT fldFirstName, fldLastName FROM tblTeachers WHERE pmkNetId LIKE ?";
+    $data = array('r______o');
+    $columns = 2;
     
     $info2 = $thisDatabaseReader->select($query, $data, 1, 0, 0, 0, false, false);
     $highlight = 0; // used to highlight alternate rows
