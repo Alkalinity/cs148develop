@@ -13,10 +13,18 @@ include "top.php";
 print '<table>';
     //now print out each record
 //$query = file_get_contents('sql/q01.sql');
-    $query = "SELECT fldFirstName, fldLastName, COUNT(tblSections.fldSection) FROM tblTeachers INNER JOIN tblSections on pmkNetId = fnkTeacherNetId";
+    $query = "SELECT tblTeachers.fldFirstName, tblTeachers.fldLastName,  count(tblStudents.fldFirstName) as total
+FROM tblSections
+JOIN tblEnrolls on tblSections.fldCRN  = tblEnrolls.`fnkSectionId`
+JOIN tblStudents on pmkStudentId = fnkStudentId
+JOIN tblTeachers on tblSections.fnkTeacherNetId=pmkNetId
+WHERE fldType != ?
+group by fnkTeacherNetId
+ORDER BY total desc";
     $columns = 3;
+    $data = array('LAB');
     
-    $info2 = $thisDatabaseReader->select($query, '', 0, 0, 0, 0, false, false);
+    $info2 = $thisDatabaseReader->select($query, $data, 0, 1, 0, 0, false, false);
     $highlight = 0; // used to highlight alternate rows
     foreach ($info2 as $rec) {
         $highlight++;
