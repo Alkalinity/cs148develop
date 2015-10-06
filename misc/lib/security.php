@@ -34,6 +34,7 @@ function securityCheck($path_parts, $yourURL, $form = false) {
     $whiteListPages[] = "queryEight.php";
     $whiteListPages[] = "queryNine.php";
     $whiteListPages[] = "queryTen.php";
+    $whiteListPages[] = "friday.php";
 
     //add all the folders to this array
     $whiteListFolders = array();
@@ -44,7 +45,7 @@ function securityCheck($path_parts, $yourURL, $form = false) {
     $whiteListFolders[] = "/cs148/assignment2.0";
     $whiteListFolders[] = "/cs148develop/assignment2.0";
     $whiteListFolders[] = "/cs148develop/assignment3.0";
-    $whiteListFolers[] = "/cs148/assignment3.0";
+    $whiteListFolders[] = "/cs148develop/misc";
     
     $whiteListFolders[] = "/education/cs148/assignment1.0";
     $whiteListFolders[] = "/develop/cs148/assignment1.0";

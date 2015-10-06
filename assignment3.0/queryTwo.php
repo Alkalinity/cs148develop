@@ -13,10 +13,9 @@ include "top.php";
 print '<table>';
     //now print out each record
 //$query = file_get_contents('sql/q01.sql');
-    $query = "SELECT DISTINCT fldDays, fldStart, tblTeachers.fldLastName FROM tblSections, tblTeachers WHERE fldLastName = 'Snapp';
-";
-    $data = array("%Introduction%");
-    $columns = 1;
+    $query = "SELECT DISTINCT fldDays, fldStart, tblTeachers.fldLastName FROM tblSections INNER JOIN tblTeachers on pmkNetId = fnkTeacherNetId  WHERE fldLastName = ?";
+    $data = array("Snapp");
+    $columns = 3;
     
     $info2 = $thisDatabaseReader->select($query, $data, 1, 0, 0, 0, false, false);
     $highlight = 0; // used to highlight alternate rows

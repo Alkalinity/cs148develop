@@ -13,14 +13,9 @@ include "top.php";
 print '<table>';
     //now print out each record
 //$query = file_get_contents('sql/q01.sql');
-    $query = "SELECT tblSections.fldCRN, tblStudents.fldLastName, tblStudents.fldFirstName
-FROM (( tblSections
-    INNER JOIN tblEnrolls on tblEnrolls.fnkCourseId = tblSections.fnkCourseId)
-    INNER JOIN tblStudents on tblStudents.pmkStudentId = tblEnrolls.fnkStudentId)
-    WHERE tblSections.fldCRN = ?
-";
-    $data = array("91954");
-    $columns = 3;
+    $query = "SELECT fldFirstName, fldLastName FROM tblTeachers WHERE pmkNetId LIKE ?";
+    $data = array('r______o');
+    $columns = 2;
     
     $info2 = $thisDatabaseReader->select($query, $data, 1, 0, 0, 0, false, false);
     $highlight = 0; // used to highlight alternate rows

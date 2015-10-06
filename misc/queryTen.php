@@ -13,16 +13,11 @@ include "top.php";
 print '<table>';
     //now print out each record
 //$query = file_get_contents('sql/q01.sql');
-    $query = "SELECT tblSections.fldCRN, tblStudents.fldLastName, tblStudents.fldFirstName
-FROM (( tblSections
-    INNER JOIN tblEnrolls on tblEnrolls.fnkCourseId = tblSections.fnkCourseId)
-    INNER JOIN tblStudents on tblStudents.pmkStudentId = tblEnrolls.fnkStudentId)
-    WHERE tblSections.fldCRN = ?
-";
-    $data = array("91954");
-    $columns = 3;
+    $query = 'SELECT DISTINCT fldBuilding, fldNumStudents FROM tblSections WHERE fldDays LIKE ? GROUP by fldBuilding ORDER BY fldNumStudents DESC';
+    $data = array("%W%");
+    $columns = 2;
     
-    $info2 = $thisDatabaseReader->select($query, $data, 1, 0, 0, 0, false, false);
+    $info2 = $thisDatabaseReader->select($query, $data, 1, 1, 0, 0, false, false);
     $highlight = 0; // used to highlight alternate rows
     foreach ($info2 as $rec) {
         $highlight++;

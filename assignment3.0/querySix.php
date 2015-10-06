@@ -13,9 +13,9 @@ include "top.php";
 print '<table>';
     //now print out each record
 //$query = file_get_contents('sql/q01.sql');
-    $query = 'SELECT fldFirstName, fldLastName, fldPhone, fldSalary FROM tblTeachers WHERE fldSalary < AVG(COUNT(fldSalary))';
+    $query = 'SELECT fldFirstName, fldLastName, fldPhone, fldSalary FROM tblTeachers HAVING (fldSalary < AVG(fldSalary))';
     $data = array("%data%", "CS");
-    $columns = 1;
+    $columns = 4;
     
 
     $info2 = $thisDatabaseReader->select($query, $data, 1, 2, 0, 0, false, false);
